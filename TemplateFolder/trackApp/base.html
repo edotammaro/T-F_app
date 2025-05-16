@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Portale per l'Atletica Italiana{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header style="background-color: #3788d8; color: white; padding: 10px; text-align: center;">
+        <h1>Portale per l'Atletica Italiana</h1>
+    </header>
+
+    <main style="padding: 20px;">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="background-color: #f1f1f1; text-align: center; padding: 10px; margin-top: 20px;">
+        <p>&copy; 2025 TrackApp.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

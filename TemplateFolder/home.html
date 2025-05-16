@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Portale dell'Atletica Italiana</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Benvenuto nel Portale dell'Atletica Italiana</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'calendario' %}">Calendario Gare</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'registrazione' %}">Registrazione</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container" style="display: flex; align-items: flex-start; justify-content: space-between;">
+            <!-- Prossimi eventi a sinistra -->
+            <div style="width: 30%; padding-right: 20px;">
+                <h2>Prossimi Eventi</h2>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Nome</th>
+                            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Data</th>
+                            <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Luogo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for evento in eventi %}
+                            <tr>
+                                <td style="border: 1px solid #ccc; padding: 8px;">{{ evento.nome }}</td>
+                                <td style="border: 1px solid #ccc; padding: 8px;">{{ evento.data }}</td>
+                                <td style="border: 1px solid #ccc; padding: 8px;">{{ evento.luogo }}</td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="3" style="border: 1px solid #ccc; padding: 8px; text-align: center;">Nessun evento disponibile</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Immagine centrale -->
+            <div style="text-align: center; width: 40%;">
+                <img src="https://th.bing.com/th/id/OIP.qX18JvKLHPt10luXxZKGOgAAAA?rs=1&pid=ImgDetMain" class="main-image" alt="Pista di atletica" style="width: 100%; max-width: 400px; height: auto;">
+            </div>
+
+            <!-- Testo semplificato a destra -->
+            <div style="width: 30%; font-size: 14px; line-height: 1.5;">
+                <p>
+                    L'atletica leggera comprende corse, marce, salti, lanci e prove multiple. È uno sport antico, presente fin dai primi Giochi Olimpici moderni.
+                </p>
+                <p>
+                    Per maggiori dettagli, visita la pagina <a href="https://it.wikipedia.org/wiki/Atletica_leggera" target="_blank">Wikipedia</a>.
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Portale per l'Atletica Italiana</p>
+        </div>
+    </footer>
+</body>
+</html>

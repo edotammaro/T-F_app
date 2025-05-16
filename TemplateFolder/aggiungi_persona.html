@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuova Persona</title>
+</head>
+<body>
+    <h2>Inserisci Nuova Persona</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salva</button>
+    </form>
+</body>
+</html>

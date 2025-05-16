@@ -1,0 +1,26 @@
+{% extends "trackApp/base.html" %}
+
+{% block title %}Benvenuto{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <h2>Ciao, {{ persona.nome }}!</h2>
+    <p>Hai effettuato l'accesso come <strong>{{ persona.tipo_persona|title }}</strong>.</p>
+
+    <hr>
+
+    {% if checklist %}
+        <h3>Cosa puoi fare:</h3>
+        <ul>
+            {% for item in checklist %}
+                <li>✅ {{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'profilo_utente' %}" class="btn">Vai al tuo profilo</a> |
+        <a href="{% url 'calendario' %}" class="btn">Calendario Gare</a>
+    </div>
+</div>
+{% endblock %}

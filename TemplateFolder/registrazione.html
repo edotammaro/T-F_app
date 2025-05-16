@@ -1,0 +1,71 @@
+{% extends "trackApp/base.html" %}
+
+{% block title %}Registrazione{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; height: 80vh; background-color: #f9f9f9; padding: 0 50px;">
+    <!-- Immagini a sinistra -->
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-right: 50px;">
+        <img src="https://th.bing.com/th/id/OIP.wyCB_MKGEh1Gr5wKuKScpAHaE7?rs=1&pid=ImgDetMain" alt="Yeman Crippa" style="width: 400px; height: auto; margin-bottom: 10px; border-radius: 8px;">
+        <img src="https://www.oasport.it/wp-content/uploads/2024/03/federica-del-buono-e1710689433432.jpg" alt="Atleta" style="width: 400px; height: auto; border-radius: 8px;">
+    </div>
+
+    <!-- Modulo di registrazione -->
+    <form method="post" action="{% url 'registrazione' %}" style="text-align: center;">
+        {% csrf_token %}
+        <h1 style="margin-bottom: 20px; font-size: 24px; color: #333;">Registrazione</h1>
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="Inserisci nome" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="cognome" name="cognome" class="form-control" placeholder="Inserisci cognome" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="date" id="data_nascita" name="data_nascita" class="form-control" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <select id="sesso" name="sesso" class="form-control" required
+                    style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <option value="" disabled selected>Seleziona sesso</option>
+                <option value="M">Maschio</option>
+                <option value="F">Femmina</option>
+                <option value="Altro">Altro</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Inserisci email" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Inserisci numero di telefono" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <select id="tipo_persona" name="tipo_persona" class="form-control" required
+                    style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+                <option value="" disabled selected>Seleziona tipo di persona</option>
+                <option value="atleta">Atleta</option>
+                <option value="presidente">Presidente</option>
+                <option value="allenatore">Allenatore</option>
+                <option value="fisioterapista">Fisioterapista</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Inserisci password" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <button type="submit" class="btn"
+                style="width: 150px; height: 50px; background-color: #007bff; color: white; border: none; border-radius: 8px; font-size: 16px;">
+            Registrati
+        </button>
+    </form>
+
+    <!-- Immagini a destra -->
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 50px;">
+    <img src="https://wips.plug.it/cips/sport.virgilio.it/cms/2021/08/gli-uomini-doro-della-staffetta-4x100-azzurra_pj4o0ym869r314xsyptq22sa8.jpg" alt="Atleta" style="width: 400px; height: auto; margin-bottom: 10px; border-radius: 8px;">
+    <img src="https://athleticsweekly.com/wp-content/uploads/2023/12/Nadia-Battocletti.jpg" style="width: 400px; height: auto; border-radius: 8px;">
+</div>
+{% endblock %}

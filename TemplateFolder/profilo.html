@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilo Utente</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Profilo Utente</h1>
+        <p><strong>Nome:</strong> {{ persona.nome }} {{ persona.cognome }}</p>
+        <p><strong>Email:</strong> {{ persona.email }}</p>
+        <p><strong>Ruolo:</strong> {{ persona.get_tipo_persona_display }}</p>
+        <p><strong>Data di nascita:</strong> {{ persona.data_nascita }}</p>
+        <p><strong>Telefono:</strong> {{ persona.telefono }}</p>
+        <p><strong>Sesso:</strong> {{ persona.get_sesso_display }}</p>
+
+        {% if atleta %}
+            <p><strong>Categoria:</strong> {{ atleta.get_categoria_display }}</p>
+            <p><strong>Specialità:</strong> {{ atleta.specialita }}</p>
+            <p><strong>Stato:</strong> {{ atleta.stato }}</p>
+        {% endif %}
+
+        <a href="{% url 'home' %}">Torna alla home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'trackApp/base.html' %}
+
+{% block content %}
+<h2>Dettagli Gara</h2>
+<p><strong>Nome:</strong> {{ gara.nome }}</p>
+<p><strong>Data:</strong> {{ gara.data }}</p>
+<p><strong>Ora:</strong> {{ gara.ora }}</p>
+<p><strong>Descrizione:</strong> {{ gara.descrizione }}</p>
+<a href="/calendario/">Torna al calendario</a>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "trackApp/base.html" %}
+
+{% block title %}Accedi all'area riservata{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; height: 80vh; background-color: #f9f9f9; padding: 0 50px;">
+    <!-- Immagini a sinistra -->
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-right: 50px;">
+        <img src="https://www.oasport.it/wp-content/uploads/2022/02/yeman-crippa-2.jpg" alt="Yeman Crippa" style="width: 400px; height: auto; margin-bottom: 10px; border-radius: 8px;">
+        <img src="https://th.bing.com/th/id/R.4f78cf48c186a3b65f5f6ae831dd1fa2?rik=F85FI1QTx7QmIA&pid=ImgRaw&r=0" alt="Atleta" style="width: 400px; height: auto; border-radius: 8px;">
+    </div>
+
+    <!-- Modulo di login -->
+    <form method="post" action="{% url 'login' %}" style="text-align: center;">
+        {% csrf_token %}
+        <h1 style="margin-bottom: 20px; font-size: 24px; color: #333;">Accedi all'area riservata</h1>
+        <div style="margin-bottom: 20px;">
+            <input type="email" id="email" name="email" class="form-control" placeholder="Inserisci email" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Inserisci password" required
+                   style="width: 300px; height: 50px; font-size: 16px; padding-left: 10px; border: 1px solid #ccc; border-radius: 8px;">
+        </div>
+        <button type="submit" class="btn"
+                style="width: 150px; height: 50px; background-color: #007bff; color: white; border: none; border-radius: 8px; font-size: 16px;">
+            Accedi
+        </button>
+    </form>
+
+    <!-- Immagini a destra -->
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-left: 50px;">
+        <img src="https://www.sportface.it/wp-content/uploads/2024/08/WhatsApp-Image-2024-08-09-at-21.57.59-1.jpeg" alt="Atleta" style="width: 400px; height: auto; margin-bottom: 10px; border-radius: 8px;">
+        <img src="https://www.olympialab.com/wp-content/uploads/2024/03/Gaia-Sabbatini-Italia-Team-18-03-2024-Olympialab.jpeg" alt="Gaia Sabbatini" style="width: 400px; height: auto; border-radius: 8px;">
+    </div>
+</div>
+{% endblock %}
